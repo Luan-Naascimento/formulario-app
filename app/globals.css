@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: radial-gradient(circle at 1px 1px, #d8dee6 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.perforation {
+  background-image: radial-gradient(circle, #d8dee6 1.5px, transparent 1.6px);
+  background-size: 10px 10px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.field-label {
+  @apply block font-mono text-[11px] uppercase tracking-[0.14em] text-muted mb-1.5;
+}
+
+.field-input {
+  @apply w-full rounded-none border-0 border-b-2 border-line bg-transparent px-1 py-2.5 font-body text-[15px] text-ink outline-none transition-colors focus:border-teal;
+}
+
+.field-input:focus-visible {
+  outline: 2px solid transparent;
+}
+
+.field-error {
+  @apply mt-1 font-mono text-[11px] text-alert;
+}
+
+.stamp {
+  @apply inline-flex items-center justify-center rounded-full border-2 border-gold/70 font-display italic text-gold;
+}
