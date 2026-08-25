@@ -19,9 +19,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { senhaHash, ...publico } = visualizador;
-  const masterEmail = (process.env.SUPER_ADMIN_EMAIL || "").toLowerCase();
-  const souMaster = publico.email.toLowerCase() === masterEmail;
-
-  return NextResponse.json({ ...publico, souMaster });
+const { senhaHash, ...publico } = visualizador;
+  return NextResponse.json(publico);
 }
+
