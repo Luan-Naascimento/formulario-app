@@ -22,7 +22,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cadastro de Requerente",
+  title: "Cadastro de Apiadores",
   description: "Formulário de cadastro e painel de visualizadores",
 };
 
