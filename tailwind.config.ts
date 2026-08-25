@@ -5,13 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B2545",
-        teal: "#114B5F",
+        ink: "#c93d05",
+        teal: "#000000",
         canvas: "#F3F5F8",
         card: "#FFFFFF",
-        gold: "#C89B3C",
+        gold: "#fcfcfc",
         alert: "#B3261E",
-        muted: "#5B6472",
+        muted: "#7d8188",
         line: "#D8DEE6",
       },
       fontFamily: {

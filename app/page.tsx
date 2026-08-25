@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   maskCPF,
@@ -43,13 +43,6 @@ export default function FormularioPage() {
   const [buscandoCEP, setBuscandoCEP] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [protocoloEmitido, setProtocoloEmitido] = useState<string | null>(null);
-
-  const [temAcessoPainel, setTemAcessoPainel] = useState(false);
-
-  useEffect(() => {
-    const sessao = localStorage.getItem("sessao_visualizador");
-    setTemAcessoPainel(!!sessao);
-  }, []);
 
   const protocoloPreview = useMemo(() => gerarProtocolo(), []);
 
@@ -172,14 +165,12 @@ export default function FormularioPage() {
               Formulário de apoiadores
             </h1>
           </div>
-          {temAcessoPainel && (
-            <Link
-              href="/visualizadores"
-              className="md:hidden block text-center font-mono text-xs uppercase tracking-[0.14em] text-muted"
-            >
-              Painel de visualizadores →
-            </Link>
-          )}
+          <Link
+            href="/visualizadores"
+            className="hidden md:block font-mono text-xs uppercase tracking-[0.14em] text-muted hover:text-teal"
+          >
+            Painel de visualizadores →
+          </Link>
         </header>
 
         {/* Formulário */}
@@ -360,27 +351,22 @@ export default function FormularioPage() {
             {enviando ? "Enviando…" : "Enviar cadastro"}
           </button>
 
-          {temAcessoPainel && (
-            <Link
-              href="/visualizadores"
-              className="hidden md:block font-mono text-xs uppercase tracking-[0.14em] text-muted hover:text-teal"
-            >
-              Painel de visualizadores →
-            </Link>
-          )}
+          <Link
+            href="/visualizadores"
+            className="md:hidden block text-center font-mono text-xs uppercase tracking-[0.14em] text-muted"
+          >
+            Painel de visualizadores →
+          </Link>
         </form>
 
         {/* Canhoto / protocolo ao vivo */}
         <aside className="hidden md:block relative">
-          <div className="sticky top-10 bg-ink text-canvas p-6 border border-ink">
+          <div className="sticky top-10 bg-muted text-canvas p-6 border border-teal">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-gold mb-6">
-              Canhoto — via do requerente
+              Canhoto — via do apoiador
             </p>
             <dl className="space-y-4 text-sm font-mono">
-              <div>
-                <dt className="text-canvas/50 text-[10px] uppercase">Protocolo</dt>
-                <dd className="text-lg text-gold">{protocoloPreview}</dd>
-              </div>
+              
               <div>
                 <dt className="text-canvas/50 text-[10px] uppercase">Nome</dt>
                 <dd className="truncate">{form.nomeCompleto || "—"}</dd>
@@ -411,6 +397,7 @@ export default function FormularioPage() {
             </p>
           </div>
         </aside>
+        
       </div>
     </main>
   );
